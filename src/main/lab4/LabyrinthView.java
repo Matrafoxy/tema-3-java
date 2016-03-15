@@ -12,5 +12,6 @@ package main.lab4;
 public interface LabyrinthView {
     LabyrinthMatrixImpl getLabyrinth();
    void setLabyrinth(LabyrinthMatrixImpl x);
+    @Override
    String toString();
 }

@@ -16,7 +16,7 @@ public class LabyrinthMatrixImpl implements Labyrinth {
  LabyrinthMatrixImpl(int r,int c,int[][] labirinth){
  row=r;
  col=c;
- lab= new int[row][col];
+ //lab= new int[row][col];
  lab=labirinth;
  }
  @Override
@@ -24,6 +24,9 @@ public class LabyrinthMatrixImpl implements Labyrinth {
         return row;
     }
 
+    public void setCell(int i,int j){
+    lab[i][j]=3;
+}
     @Override
     public int getColumnCount() {
   return col;

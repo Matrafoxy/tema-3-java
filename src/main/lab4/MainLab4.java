@@ -5,7 +5,7 @@
  */
 package main.lab4;
 
-import java.io.File;
+import java.io.*;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
@@ -20,7 +20,8 @@ public class MainLab4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    Labyrinth lab;
+    LabyrinthMatrixImpl lab;
+    
          File file=new File("src/labyrinth.txt");
 try{  
 if(file.exists()){
@@ -35,8 +36,87 @@ else
                 
 			System.out.println(e.toString());
             }}
-    Scanner input = new Scanner(file);
+  Scanner  input = new Scanner(file);
+    
+int n=0,m=0,mat[][];
+    if(input.hasNext()){
+        n=input.nextInt();}
+      if(input.hasNext()){
+        m=input.nextInt();}
+      mat=new int[n][m];
+for(int i=0;i<n;i++)
+    for(int j=0;j<m;j++)
+       if(input.hasNext())
+           mat[i][j]=input.nextInt();
+
+
+lab =new LabyrinthMatrixImpl(n,m,mat);
+
+//Pair p=lab.getStartCell();
+
+//LabyrinthSolverAuto solver=new LabyrinthSolverAuto(lab);
+//solver.Solve(p,0);
+LabyrinthViewImpl y=new LabyrinthViewImpl(lab);
+System.out.println(y.toString());
+int g=0,i,j;
+Scanner com=new Scanner(new InputStreamReader(System.in));
+String comanda;
+Pair p=lab.getStartCell(),p2;
+System.out.println(p.geti());
+LabyrinthSolverImpl slv=new LabyrinthSolverImpl(lab);
+while(g==0){
+    System.out.println("dati comanda:"+'\n');
+    comanda=com.nextLine();
+    if(comanda.equals("U")){
+        p2=new Pair(p.geti()-1,p.getj());
+        int x=slv.nextCelltoExplore(p2);
+        if(x==1)
+            g=1;
+        else
+            if(x==0)
+                p=p2;
+        //System.out.println(slv.nextCelltoExplore(p2));
     }
+    else if(comanda.equals("D")){
+        p2=new Pair(p.geti()+1,p.getj());
+        int x=slv.nextCelltoExplore(p2);
+        if(x==1)
+            g=1;
+        else
+            if(x==0)
+                p=p2;
+        //System.out.println(slv.nextCelltoExplore(p2));
+    }
+    else if(comanda.equals("L")){
+         p2=new Pair(p.geti(),p.getj()-1);
+        int x=slv.nextCelltoExplore(p2);
+        if(x==1)
+            g=1;
+        else
+            if(x==0)
+                p=p2;
+        //System.out.println(slv.nextCelltoExplore(p2));
+        
+    }
+    else if(comanda.equals("R")){
+         p2=new Pair(p.geti(),p.getj()+1);
+       int x=slv.nextCelltoExplore(p2);
+        if(x==1)
+            g=1;
+        else
+            if(x==0)
+                p=p2;
+        
+        //System.out.println(slv.nextCelltoExplore(p2));
+    }
+   else
+        System.out.println("comanda incorecta");
+}
+System.out.println("end");
+
+
+
+}
     catch(FileNotFoundException e){
  //Argumente pentru tratarea exceptiilor
   
@@ -45,10 +125,10 @@ else
 
     
     
+    
+ 
+
+
+
     }
-
-
-
-
-
 }

@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package main.lab4;
-
+import java.util.*;
 /**
  *
  * @author tudor
  */
 public class LabyrinthObserverStoreSol  implements LabyrinthObserver{
     Labyrinth lab;
-    String[] sol;
+    LinkedList<String> sol=new LinkedList<>();
     static int i=0;
-    LabyrinthObserverStoreSol(Labyrinth x){
+    LabyrinthObserverStoreSol(LabyrinthMatrixImpl x){
         lab=x;
     }
     
@@ -21,6 +21,7 @@ public class LabyrinthObserverStoreSol  implements LabyrinthObserver{
         
     }
     public void processSolution(LabyrinthViewImpl x){
-        sol[i++]=x.toString();
+        
+        sol.addFirst(x.toString());
     }
 }

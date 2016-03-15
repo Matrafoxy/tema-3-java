@@ -36,10 +36,11 @@ mat=x;
                   sb.append("*|");
            else if(i==mat.getStartCell().geti()&&j==mat.getStartCell().getj())
                  sb.append("S|");
-           else 
-               if(i==mat.getFinishCell().geti()&&j==mat.getFinishCell().getj())
+           else if(i==mat.getFinishCell().geti()&&j==mat.getFinishCell().getj())
                  sb.append("F|");
-             
+             else
+                if(mat.getLabyrinth()[i][j]==3)
+                    sb.append("X|");
        }
        sb.append('\n');
              

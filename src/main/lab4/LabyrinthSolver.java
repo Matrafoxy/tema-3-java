@@ -13,9 +13,9 @@ public interface LabyrinthSolver {
      
 
  public Labyrinth getLabyrinth();
-  public void SetLabirinth( Labyrinth x);
+  public void setLabyrinth( LabyrinthMatrixImpl x);
 
-  public Pair nextCelltoExplore(Pair poz);
+  public int nextCelltoExplore(Pair poz);
    
 
 
