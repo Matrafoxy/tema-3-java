@@ -12,7 +12,7 @@ package main.lab4;
 public  interface Labyrinth {
      int getRowCount();
      int getColumnCount();
-
+       //int   getLabyrinth();
      Boolean isFreeAt(int i,int j);
      Boolean isWallAt(int i,int j);
      Pair getStartCell();

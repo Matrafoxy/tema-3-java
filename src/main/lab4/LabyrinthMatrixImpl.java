@@ -28,6 +28,9 @@ public class LabyrinthMatrixImpl implements Labyrinth {
     public int getColumnCount() {
   return col;
     }
+    public int[][] getLabyrinth(){
+        return lab;
+    }
 
  @Override
     public Boolean isFreeAt(int x,int y) {

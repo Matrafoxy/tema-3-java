@@ -14,12 +14,15 @@ public class LabyrinthViewImpl implements LabyrinthView  {
     LabyrinthViewImpl(LabyrinthMatrixImpl x){
         mat=x;
     }
+    @Override
  public LabyrinthMatrixImpl getLabyrinth(){
  return mat;
  }
-public  void setLabyrinth(LabyrinthMatrixImpl x){
+    @Override
+    public  void setLabyrinth(LabyrinthMatrixImpl x){
 mat=x;
 }
+    @Override
  public String toString(){
      StringBuilder sb=new StringBuilder();
      int n=mat.getRowCount();

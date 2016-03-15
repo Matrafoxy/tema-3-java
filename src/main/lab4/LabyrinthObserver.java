@@ -11,4 +11,7 @@ package main.lab4;
  */
 public interface LabyrinthObserver {
     
+    
+    public void processCell( Pair p);
+    public void processSolution(LabyrinthViewImpl x);
 }
