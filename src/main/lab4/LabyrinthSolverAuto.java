@@ -9,25 +9,23 @@ package main.lab4;
  *
  * @author tudor
  */
-public class LabyrinthSolverImpl implements LabyrinthSolver {
+public class LabyrinthSolverAuto implements LabyrinthSolver{
     Labyrinth lab;
-     
     
-    LabyrinthSolverImpl(Labyrinth x){
-        lab=x;
+    LabyrinthSolverAuto(Labyrinth x){
+    lab=x;
     }
     @Override
     public Labyrinth getLabyrinth(){
         return lab;
     }
     @Override
-  public void SetLabirinth(Labyrinth x){
+  public void SetLabirinth( Labyrinth x){
       lab=x;
   }
 
     @Override
   public Pair nextCelltoExplore(Pair poz){
- 
       return poz;
-}
+  }
 }

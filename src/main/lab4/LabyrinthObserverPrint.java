@@ -9,15 +9,6 @@ package main.lab4;
  *
  * @author tudor
  */
-public interface LabyrinthSolver {
-     
-
- public Labyrinth getLabyrinth();
-  public void SetLabirinth( Labyrinth x);
-
-  public Pair nextCelltoExplore(Pair poz);
-   
-
-
-
+public class LabyrinthObserverPrint {
+    
 }
