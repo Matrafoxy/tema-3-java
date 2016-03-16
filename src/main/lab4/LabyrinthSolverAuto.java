@@ -49,24 +49,24 @@ public class LabyrinthSolverAuto implements LabyrinthSolver{
                return;
        }}
       if(poz.getj()>0){
-          if(lab.isFreeAt(poz.geti(),poz.getj()-1)){//System.out.println(2);
+          if(lab.isFreeAt(poz.geti(),poz.getj()-1)){
           p1[i++]=new Pair(poz.geti(),poz.getj()-1);}
           else
           if(lab.getFinishCell().geti()==poz.geti()&&lab.getFinishCell().getj()==poz.getj()-1){
                print.processCell(poz);return;
       }}
      if(poz.geti()+1<lab.getRowCount()){
-      if(lab.isFreeAt(poz.geti()+1,poz.getj())){//System.out.println(3);
+      if(lab.isFreeAt(poz.geti()+1,poz.getj())){
           p1[i++]=new Pair(poz.geti()+1,poz.getj());}
        else
           if(lab.getFinishCell().geti()==poz.geti()+1&&lab.getFinishCell().getj()==poz.getj()){
-               print.processCell(poz);//System.exit(0);
+               print.processCell(poz);
                        
               System.out.println("finish"); return; }
      }
-    if(poz.getj()+1<lab.getColumnCount()){System.out.println(lab.isFreeAt(poz.geti(),poz.getj()+1));
+    if(poz.getj()+1<lab.getColumnCount()){//System.out.println(lab.isFreeAt(poz.geti(),poz.getj()+1));
       if(lab.isFreeAt(poz.geti(),poz.getj()+1)){//System.out.println(lab.isFreeAt(poz.geti(),poz.getj()+1));
-      System.out.println(poz.geti());System.out.println(poz.getj());    
+      //System.out.println(poz.geti());System.out.println(poz.getj());    
       p1[i++]=new Pair(poz.geti(),poz.getj()+1);
       System.out.println(p1[0].geti());System.out.println(p1[0].getj());
       }
@@ -77,7 +77,7 @@ public class LabyrinthSolverAuto implements LabyrinthSolver{
           return;
               }
     }
-    System.out.println("i="+i);//System.out.println(i);
+    //System.out.println("i="+i);//System.out.println(i);
   if(i>1){
       //System.out.println(i);
      if(!(poz.geti()==lab.getStartCell().geti()&&poz.getj()==lab.getStartCell().getj())){
