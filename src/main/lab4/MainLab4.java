@@ -20,7 +20,7 @@ public class MainLab4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-    LabyrinthMatrixImpl lab;
+    LabyrinthMatrixImpl lab,lab1;
     
          File file=new File("src/labyrinth.txt");
 try{  
@@ -38,30 +38,34 @@ else
             }}
   Scanner  input = new Scanner(file);
     
-int n=0,m=0,mat[][];
+int n=0,m=0,mat[][],mat2[][];
     if(input.hasNext()){
         n=input.nextInt();}
       if(input.hasNext()){
         m=input.nextInt();}
-      mat=new int[n][m];
+      mat=new int[n][m];mat2=new int[n][m];
 for(int i=0;i<n;i++)
     for(int j=0;j<m;j++)
        if(input.hasNext())
-           mat[i][j]=input.nextInt();
+       mat[i][j]=input.nextInt();
+   for(int i=0;i<n;i++)
+    System.arraycopy(mat[i], 0, mat2[i], 0, m);
 
+lab1 =new LabyrinthMatrixImpl(n,m,mat);
 
-lab =new LabyrinthMatrixImpl(n,m,mat);
+Pair p=lab1.getStartCell();
 
-//Pair p=lab.getStartCell();
-
-//LabyrinthSolverAuto solver=new LabyrinthSolverAuto(lab);
-//solver.Solve(p,0);
+LabyrinthSolverAuto solver=new LabyrinthSolverAuto(lab1);
+solver.Solve(p,0);
+//LabyrinthViewImpl y=new LabyrinthViewImpl(lab);
+//System.out.println(y.toString());
+lab =new LabyrinthMatrixImpl(n,m,mat2);
 LabyrinthViewImpl y=new LabyrinthViewImpl(lab);
 System.out.println(y.toString());
 int g=0,i,j;
 Scanner com=new Scanner(new InputStreamReader(System.in));
 String comanda;
-Pair p=lab.getStartCell(),p2;
+ p=lab.getStartCell();Pair p2;
 System.out.println(p.geti());
 LabyrinthSolverImpl slv=new LabyrinthSolverImpl(lab);
 while(g==0){

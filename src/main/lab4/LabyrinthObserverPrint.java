@@ -17,7 +17,7 @@ public class LabyrinthObserverPrint implements LabyrinthObserver {
     
     @Override
     public void processCell(Pair p){
-        //System.out.println(lab.getLabyrinth());
+       // System.out.println(p.geti()); System.out.println(p.getj());
        lab.setCell(p.geti(), p.getj());
         LabyrinthViewImpl view=new LabyrinthViewImpl(lab);
         processSolution(view);
