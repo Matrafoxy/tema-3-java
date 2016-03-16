@@ -26,7 +26,7 @@ mat=x;
  public String toString(){
      StringBuilder sb=new StringBuilder();
      int n=mat.getRowCount();
-     int m=mat.getRowCount();
+     int m=mat.getColumnCount();
      for(int i=0;i<n;i++){
        sb.append('|');
        for(int j=0;j<m;j++){

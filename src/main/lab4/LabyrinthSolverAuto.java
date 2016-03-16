@@ -40,22 +40,29 @@ public class LabyrinthSolverAuto implements LabyrinthSolver{
   
   public void Solve(Pair poz,int i){
      Pair[] p1=new Pair[4];
-      if(poz.geti()>0) 
+      if(poz.geti()>0) {
        if(lab.isFreeAt(poz.geti()-1,poz.getj())){//System.out.println(1);
-           p1[i++]=new Pair(poz.geti()-1,poz.getj());
-       }
+           p1[i++]=new Pair(poz.geti()-1,poz.getj());}
+         else
+            if(lab.getFinishCell().geti()==poz.geti()-1&&lab.getFinishCell().getj()==poz.getj()){
+               print.processCell(poz);  
+               return;
+       }}
       if(poz.getj()>0){
           if(lab.isFreeAt(poz.geti(),poz.getj()-1)){//System.out.println(2);
           p1[i++]=new Pair(poz.geti(),poz.getj()-1);}
-      }
+          else
+          if(lab.getFinishCell().geti()==poz.geti()&&lab.getFinishCell().getj()==poz.getj()-1){
+               print.processCell(poz);return;
+      }}
      if(poz.geti()+1<lab.getRowCount()){
       if(lab.isFreeAt(poz.geti()+1,poz.getj())){//System.out.println(3);
           p1[i++]=new Pair(poz.geti()+1,poz.getj());}
        else
           if(lab.getFinishCell().geti()==poz.geti()+1&&lab.getFinishCell().getj()==poz.getj()){
-               print.processCell(poz);
-          
-              System.out.println("finish");  }
+               print.processCell(poz);//System.exit(0);
+                       
+              System.out.println("finish"); return; }
      }
     if(poz.getj()+1<lab.getColumnCount()){System.out.println(lab.isFreeAt(poz.geti(),poz.getj()+1));
       if(lab.isFreeAt(poz.geti(),poz.getj()+1)){//System.out.println(lab.isFreeAt(poz.geti(),poz.getj()+1));
@@ -65,9 +72,10 @@ public class LabyrinthSolverAuto implements LabyrinthSolver{
       }
       else
           if(lab.getFinishCell().geti()==poz.geti()+i&&lab.getFinishCell().getj()==poz.getj()+1){
-               print.processCell(poz);
-          
-              System.out.println("finish");}
+              System.out.println("finish"); 
+              print.processCell(poz);
+          return;
+              }
     }
     System.out.println("i="+i);//System.out.println(i);
   if(i>1){
@@ -88,8 +96,11 @@ public class LabyrinthSolverAuto implements LabyrinthSolver{
   
   else
       if(i==0){//System.out.println("auci");
-      if(!(list.isEmpty()))   
+      if(!(list.isEmpty()))  
+      {
+          print.processCell(poz);
           Solve(list.getFirst(),0);}
   
   }
+}
 }
